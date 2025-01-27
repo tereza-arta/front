@@ -39,7 +39,7 @@ jobs:
           fi  
           docker run --rm -d --name front-cnt --network host ${{ secrets.DOCKER_UNAME }}/app-client:${GITHUB_SHA::7}
           docker exec front-cnt /bin/sh -c "which certbot"
-          docker exec front-cnt /bin/sh -c "certbot certonly --non-interactive --agree-tos --no-eff-email --no-redirect --email 'an3146073@gmail.com' --dns-google --dns-google-credentials /etc/letsencrypt/clouddns.json --dns-google-propagation-seconds 120 --cert-name whitelabel-proxy --domains "dev.test.padcllc.com""
+          docker exec front-cnt /bin/sh -c "certbot certonly --non-interactive --agree-tos --no-eff-email --no-redirect --email 'an3146073@gmail.com' --cert-name whitelabel-proxy --domains "dev.test.padcllc.com""
           #docker exec front-cnt /bin/sh -c "/usr/bin/certbot --nginx --non-interactive --agree-tos --email an3146073@gmail.com --domains dev.test.padcllc.com --staging"
           #docker exec -u front-cnt /bin/sh -c "printf 'an3146073@gmail.com\nY\nY\n2\n' | /usr/bin/certbot --nginx"
           #docker stop front-cnt-0
