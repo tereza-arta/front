@@ -39,5 +39,6 @@ jobs:
           fi  
           docker run --rm -d --name front-cnt --network host ${{ secrets.DOCKER_UNAME }}/app-client:${GITHUB_SHA::7}
           docker exec front-cnt /bin/sh -c "which certbot"
-          docker exec -u front-cnt /bin/sh -c printf 'an3146073@gmail.com\nY\nY\n2\n' | /usr/bin/certbot --nginx
+          docker exec front-cnt /bin/sh -c "printf 'an3146073@gmail.com\nY\nY\n2\n' | /usr/bin/certbot --nginx"
+          #docker exec -u front-cnt /bin/sh -c printf 'an3146073@gmail.com\nY\nY\n2\n' | /usr/bin/certbot --nginx
           #docker stop front-cnt-0
